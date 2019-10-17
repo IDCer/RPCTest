@@ -1,6 +1,6 @@
 package server.thread;
 
-import api.interfaces.RPCSignal;
+
 import api.model.RPCRequest;
 
 import java.io.ObjectInputStream;

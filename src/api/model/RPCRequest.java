@@ -10,6 +10,9 @@ import java.io.Serializable;
  */
 
 public class RPCRequest implements RPCSignal, Serializable {
+    // 请求类名
+    private String kind;
+
     // 类名
     private String className;
 
@@ -41,5 +44,14 @@ public class RPCRequest implements RPCSignal, Serializable {
 
     public void setParameters(Object[] parameters) {
         this.parameters = parameters;
+    }
+
+    @Override
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 }
