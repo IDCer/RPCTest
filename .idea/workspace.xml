@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19e8f965-5908-435f-b8e2-3e25da068bf1" name="Default" comment="添加了注册中心与服务器的心跳.&#10;目前还需要实现的功能:">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/model/RPCHeartBeatPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/model/RPCHeartBeatPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registry/RPCRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registry/RPCRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registry/thread/ClearMemoryThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registry/thread/ClearMemoryThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/RPCServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/RPCServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/thread/HeartBeatThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/thread/HeartBeatThread.java" afterDir="false" />
-    </list>
+    <list default="true" id="19e8f965-5908-435f-b8e2-3e25da068bf1" name="Default" comment="添加了注册中心与服务器的心跳.&#10;目前还需要实现的功能:&#10;&#10;实现了注册中心的清理功能" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,8 +126,16 @@
       <workItem from="1571312175497" duration="248000" />
       <workItem from="1571312559267" duration="916000" />
       <workItem from="1571313716170" duration="17034000" />
-      <workItem from="1571374895983" duration="2988000" />
+      <workItem from="1571374895983" duration="3306000" />
     </task>
+    <task id="LOCAL-00001" summary="添加了注册中心与服务器的心跳.&#10;目前还需要实现的功能:&#10;&#10;实现了注册中心的清理功能">
+      <created>1571378127861</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571378127861</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,5 +151,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加了注册中心与服务器的心跳.&#10;目前还需要实现的功能:&#10;&#10;实现了注册中心的清理功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了注册中心与服务器的心跳.&#10;目前还需要实现的功能:&#10;&#10;实现了注册中心的清理功能" />
   </component>
 </project>
