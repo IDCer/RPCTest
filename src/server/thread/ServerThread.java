@@ -2,7 +2,6 @@ package server.thread;
 
 
 import api.model.RPCRequest;
-
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -68,11 +67,13 @@ public class ServerThread implements Runnable {
         for (int i = 0, length = parameters.length; i < length; i++) {
             parameterTypes[i] = parameters[i].getClass();
         }
+
         // 获取服务的类对象
         Object service = handlerMap.get(rpcRequest.getClassName());
 
         // 获取这个服务类的方法
         Method method = service.getClass().getMethod(rpcRequest.getMethodName(), parameterTypes);
+
         // 返回方法调用结果
         return method.invoke(service, parameters);
 

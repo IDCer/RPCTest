@@ -12,9 +12,12 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RPCAnnotation {
-    // 对外发布服务的接口
+    /**
+     * 对外发布服务的接口
+     */
     Class<?> value();
-
-    // 版本,用于区分
+    /**
+     * 版本,用于区分
+     */
     String version() default "";
 }

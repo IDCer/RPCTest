@@ -1,13 +1,10 @@
 package server;
 
-import api.interfaces.HeartBeatConfig;
+import api.config.RPCConfig;
 import api.interfaces.RPCAnnotation;
-import api.interfaces.RPCRegistryCenter;
-import api.interfaces.RPCRegistryCenterConfig;
+import api.model.RPCRegisterRequest;
 import server.thread.HeartBeatThread;
 import server.thread.ServerThread;
-import server.thread.ServerThreadNew;
-
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -20,109 +17,16 @@ import java.util.concurrent.TimeUnit;
 
 public class RPCServer {
     /**
-     * a Map struct, use to store the node's info
+     * 用于记录接口与实现类之间的关系,便于客户端的查询
      */
     private static final HashMap<String, Object> serviceMap = new HashMap<String, Object>();
 
-    // registry center
-    private RPCRegistryCenter registryCenter;
+    // 服务地址
+    private String serviceAddress;
 
-    // service address
-    private String addressService;
-
-    // construct function
-    public RPCServer(RPCRegistryCenter rpcRegistryCenter, String addressService) {
-        this.registryCenter = rpcRegistryCenter;
-        this.addressService = addressService;
-    }
-
-    public RPCServer(String addressService) {
-        this.addressService = addressService;
-    }
-
-    // 开启服务器
-    public void start() {
-        // get the port
-        int port = Integer.parseInt(addressService.split(":")[1]);
-
-        System.out.println("register center to make the service persistent...");
-
-        // register service
-        try (ServerSocket serverSocket = new ServerSocket(port)){
-//            for(String interfaceName : serviceMap.keySet()) {
-//                registryCenter.register(interfaceName, addressService);
-//                System.out.println("register successful!service name:{" + interfaceName + "},service address:{" + addressService + "}");
-//            }
-            //定时发送心跳包
-            ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-            service.scheduleAtFixedRate(new HeartBeatThread(this),0, HeartBeatConfig.sendIntervalTime, TimeUnit.SECONDS);
-
-            while (true) {
-                // stop to listen the client thread
-                System.out.println("wait for a client...");
-                Socket socket = serverSocket.accept();
-                System.out.println("receive a client request -> " + socket.getLocalAddress() + ":" + socket.getLocalPort());
-                // start a new thread to handle
-                new Thread(new ServerThread(socket, serviceMap)).start();
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    // 向注册中心注册服务
-//    public void bind(Object... services) {
-//        System.out.println("begin register the service...");
-//        for (Object service : services) {
-//            // get the export interface
-//            System.out.println("service is:" + service);
-//            RPCAnnotation rpcAnnotation = service.getClass().getAnnotation(RPCAnnotation.class);
-//
-//            if (rpcAnnotation == null) {
-//                System.out.println("rpcAnnotation:" + rpcAnnotation);
-//                continue;
-//            }
-//            // the service name
-//            String serviceName = rpcAnnotation.value().getName();
-//
-//            // 通过socket传输数据到注册中心注册服务
-//            String [] ipAndPort = RPCRegistryCenterConfig.registryAddress.split(":");
-//            try {
-//                // 构建与注册中心的socket连接
-//                Socket socket = new Socket(ipAndPort[0], Integer.parseInt(ipAndPort[1]));
-//
-////                // 获取输出流
-////                ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-////                // 将对象传输给注册中心
-////                objectOutputStream.writeObject(obj);
-////                objectOutputStream.flush();
-////                socket.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
-    public void bind(Object... services) {
-        System.out.println("begin register the service...");
-        for (Object service : services) {
-            // get the export interface
-            System.out.println("service is:" + service);
-            RPCAnnotation rpcAnnotation = service.getClass().getAnnotation(RPCAnnotation.class);
-
-            if (rpcAnnotation == null) {
-                System.out.println("rpcAnnotation:" + rpcAnnotation);
-                continue;
-            }
-
-            // the service name
-            String serviceName = rpcAnnotation.value().getName();
-
-            // add to the service map
-            serviceMap.put(serviceName, service);
-            System.out.println("service bind successful! => {" + serviceName + " : " + service + "}");
-            System.out.println("服务列表为:" + serviceMap);
-        }
+    // 构造函数
+    public RPCServer(String serviceAddress) {
+        this.serviceAddress = serviceAddress;
     }
 
     public static Map<String, Object> getServiceMap() {
@@ -130,6 +34,82 @@ public class RPCServer {
     }
 
     public String getAddressService() {
-        return addressService;
+        return serviceAddress;
+    }
+
+    // 开启服务器
+    public void start() {
+        // 用于获取开启服务提供端的端口号
+        int port = Integer.parseInt(serviceAddress.split(":")[1]);
+
+        try (ServerSocket serverSocket = new ServerSocket(port)){
+            //定时发送心跳包
+            ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+            service.scheduleAtFixedRate(new HeartBeatThread(serviceAddress),0, RPCConfig.sendIntervalTime, TimeUnit.SECONDS);
+
+            while (true) {
+                // 阻塞监听线程
+                System.out.println("等待客户端的请求...");
+                Socket socket = serverSocket.accept();
+                System.out.println("收到一个客户端请求:{" + socket.getLocalAddress() + ":" + socket.getLocalPort() + "}");
+                // 放入线程去执行
+                new Thread(new ServerThread(socket, serviceMap)).start();
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 服务器向注册中心注册服务,可以是多个服务一起注册
+     */
+    public void bindService(String registryAddress, Object... services) {
+        System.out.println("服务器向注册中心发送服务注册请求...");
+        for (Object service : services) {
+            // 获取服务的接口类对象
+            RPCAnnotation rpcAnnotation = service.getClass().getAnnotation(RPCAnnotation.class);
+
+            // 如果为空则跳过注册
+            if (rpcAnnotation == null) {
+                continue;
+            }
+
+            // 获取服务名称
+            String serviceName = rpcAnnotation.value().getName();
+
+            bind(registryAddress, new RPCRegisterRequest(serviceName, serviceAddress));
+
+            // 加入{接口:实现类},用于查询客户端的请求
+            serviceMap.put(serviceName, service);
+        }
+    }
+
+    public void bind(String registryAddress, RPCRegisterRequest rpcRegisterRequest) {
+        // 获取注册中心的ip地址和端口号
+        String host = registryAddress.split(":")[0];
+        int port = Integer.parseInt(registryAddress.split(":")[1]);
+
+        Socket socket = null;
+        try {
+            socket = new Socket(host, port);
+            // 获取输出流
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            // 将注册请求传输给注册中心
+            objectOutputStream.writeObject(rpcRegisterRequest);
+            objectOutputStream.flush();
+            // 关闭流
+            objectOutputStream.close();
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (socket != null) {
+                try {
+                    socket.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

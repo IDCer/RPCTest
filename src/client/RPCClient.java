@@ -1,29 +1,72 @@
 package client;
 
-import api.interfaces.RPCServiceDiscovery;
+import api.model.RPCServiceQueryRequest;
 import client.proxy.RPCClientProxy;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Proxy;
+import java.net.Socket;
 
 /**
  * 客户端返回服务的代理实现对象
  */
 public class RPCClient {
 
-    // 服务发现中心
-    private RPCServiceDiscovery rpcServiceDiscovery;
-    public RPCClient(){}
-    // 构造函数,传入服务发现中心
-    public RPCClient(RPCServiceDiscovery rpcServiceDiscovery) {
-        this.rpcServiceDiscovery = rpcServiceDiscovery;
+    /**
+     * 获取服务的实现类对象代理
+     */
+    public <T> T getProxy(final Class<T> interfaceClass, final String serviceAddress)  {
+        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new RPCClientProxy(serviceAddress));
     }
 
-    // 返回一个服务的代理对象,这里只是一个接口,具体实现将放在服务端
-    public <T> T getProxy(final Class<T> interfaceClass, final String host, final int port)  {
-        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new RPCClientProxy(host, port));
+    /**
+     * 客户端向注册中心访问服务提供者的地址
+     */
+    public String queryService(final String serviceName, final String registryAddress) {
+        RPCServiceQueryRequest rpcServiceQueryRequest = new RPCServiceQueryRequest(serviceName);
+        return query(registryAddress, rpcServiceQueryRequest);
     }
 
-    public <T> T getProxy(final Class<T> interfaceClass)  {
-        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new RPCClientProxy(rpcServiceDiscovery));
+    public String query(String registryAddress, RPCServiceQueryRequest rpcServiceQueryRequest) {
+        // 获取注册中心ip地址和端口号
+        String [] arr = registryAddress.split(":");
+        String host = arr[0];
+        int port = Integer.parseInt(arr[1]);
+
+        // 新建一个会话
+        Socket socket = null;
+        try {
+            socket = new Socket(host, port);
+            // 获取注册中心会话的输出流
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            // 将客户端请求传输给注册中心
+            objectOutputStream.writeObject(rpcServiceQueryRequest);
+            objectOutputStream.flush();
+
+            // 从注册中心返回查询结果
+            ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+            String result = (String) objectInputStream.readObject();
+
+            // 关闭输出流和会话
+            objectOutputStream.close();
+            objectInputStream.close();
+            socket.close();
+
+            // 返回结果
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (socket != null) {
+                try {
+                    socket.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
+
 }

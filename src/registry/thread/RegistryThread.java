@@ -2,9 +2,9 @@ package registry.thread;
 
 import api.interfaces.RPCSignal;
 import api.model.RPCHeartBeatPacket;
-import api.model.RPCRequest;
+import api.model.RPCRegisterRequest;
+import api.model.RPCServiceQueryRequest;
 import registry.RPCRegistry;
-
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -49,32 +49,36 @@ public class RegistryThread implements Runnable  {
                 rpcRegistry.update(rpcHeartBeatPacket.getServiceAddress(), rpcHeartBeatPacket.getTime());
 
             } else if (signalKind.equals("REGISTER")) { // 如果信号类型为REGISTER,服务器第一次注册
+                System.out.println("接收到注册请求...");
+                // 强转类型
+                RPCRegisterRequest rpcRegisterRequest = (RPCRegisterRequest) rpcSignal;
+                // 调用对象进行注册持久化
+                rpcRegistry.register(rpcRegisterRequest.getServiceName(), rpcRegisterRequest.getServiceAddress());
 
             } else if (signalKind.equals("QUERY")) { // 如果信号类型为QUERY,即客户端查询服务
+                System.out.println("接收到客户端的查询请求");
+                RPCServiceQueryRequest rpcServiceQueryRequest = (RPCServiceQueryRequest) rpcSignal;
+                // 注册中心进行查询操作,返回查询地址
+                String serviceAddress = rpcRegistry.query(rpcServiceQueryRequest.getServiceName());
 
+                // 发送结果给客户端
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(client.getOutputStream());
+                objectOutputStream.writeObject(serviceAddress);
+                objectOutputStream.flush();
+
+                // 关闭流
+                objectOutputStream.close();
             }
-
-
-
-//            Object result = invoke(rpcRequest);
-//
-//            // 返回客户端
-//            ObjectOutputStream objectOutputStream = new ObjectOutputStream(client.getOutputStream());
-//            objectOutputStream.writeObject(result);
-//
-//            // 刷新缓冲区
-//            objectOutputStream.flush();
-//
-//            // 关闭流
-//            objectOutputStream.close();
-
+            // 关闭流
+            objectInputStream.close();
+            client.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             // 检查输入流是否关闭
-            if (objectInputStream != null) {
+            if (client != null) {
                 try {
-                    objectInputStream.close();
+                    client.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -1,12 +1,11 @@
 package server.thread;
 
-import api.interfaces.RPCRegistryCenterConfig;
+import api.config.RPCConfig;
 import api.model.RPCHeartBeatPacket;
 import server.RPCServer;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -15,12 +14,11 @@ import java.util.ArrayList;
  */
 public class HeartBeatThread implements Runnable {
 
-    // 持有一个RPCServer对象
-    private RPCServer rpcServer;
+    // 服务器地址
+    private String serviceAddress;
 
-    // 构造函数
-    public HeartBeatThread(RPCServer rpcServer) {
-        this.rpcServer = rpcServer;
+    public HeartBeatThread(String serviceAddress) {
+        this.serviceAddress = serviceAddress;
     }
 
     @Override
@@ -29,16 +27,17 @@ public class HeartBeatThread implements Runnable {
         long currentTime = System.currentTimeMillis();
 
         // 构建心跳包
-        RPCHeartBeatPacket rpcHeartBeatPacket = new RPCHeartBeatPacket(currentTime, new ArrayList<>(rpcServer.getServiceMap().keySet()), rpcServer.getAddressService());
+        RPCHeartBeatPacket rpcHeartBeatPacket = new RPCHeartBeatPacket(currentTime, serviceAddress);
 
         // 发送心跳包
-        System.out.println("发送心跳包...");
         sendMessage(rpcHeartBeatPacket);
-        System.out.println("成功发送心跳包...");
     }
 
+    /**
+     * 发送心跳包的socket会话
+     */
     public void sendMessage(Object obj) {
-        String [] ipAndPort = RPCRegistryCenterConfig.registryAddress.split(":");
+        String [] ipAndPort = RPCConfig.registryAddress.split(":");
         try {
             // 构建与注册中心的socket连接
             Socket socket = new Socket(ipAndPort[0], Integer.parseInt(ipAndPort[1]));
@@ -47,6 +46,9 @@ public class HeartBeatThread implements Runnable {
             // 将对象传输给注册中心
             objectOutputStream.writeObject(obj);
             objectOutputStream.flush();
+
+            // 关闭流
+            objectOutputStream.close();
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();

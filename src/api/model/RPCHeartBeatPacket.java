@@ -4,22 +4,28 @@ import api.interfaces.RPCSignal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class RPCHeartBeatPacket implements RPCSignal, Serializable{
-    // 信号类型
-    private String kind = "HEART";
-    // 发送心跳包的时间
+    /**
+     * 信号类型
+     */
+    private String kind;
+
+    /**
+     * 发送心跳包的时间
+     */
     private long time;
-    private List<String> info=new ArrayList<String>();
+
+    /**
+     * 服务提供的地址
+     */
     private String serviceAddress; // ip + port
 
-    public RPCHeartBeatPacket(long time, List<String> info, String serviceAddress) {
+    public RPCHeartBeatPacket(long time, String serviceAddress) {
         this.time = time;
-        this.info = info;
         this.serviceAddress = serviceAddress;
+        this.kind = "HEART";
     }
 
     public long getTime() {
@@ -28,14 +34,6 @@ public class RPCHeartBeatPacket implements RPCSignal, Serializable{
 
     public void setTime(long time) {
         this.time = time;
-    }
-
-    public List<String> getInfo() {
-        return info;
-    }
-
-    public void setInfo(List<String> info) {
-        this.info = info;
     }
 
     public String getServiceAddress() {
@@ -59,7 +57,6 @@ public class RPCHeartBeatPacket implements RPCSignal, Serializable{
         return "RPCHeartBeatPacket{" +
                 "kind='" + kind + '\'' +
                 ", time=" + time +
-                ", info=" + info +
                 ", serviceAddress='" + serviceAddress + '\'' +
                 '}';
     }
