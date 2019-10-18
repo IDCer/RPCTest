@@ -3,7 +3,9 @@ package api.model;
 import api.interfaces.RPCSignal;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RPCHeartBeatPacket implements RPCSignal, Serializable{
@@ -11,10 +13,10 @@ public class RPCHeartBeatPacket implements RPCSignal, Serializable{
     private String kind = "HEART";
     // 发送心跳包的时间
     private long time;
-    private Map<String, Object> info = new HashMap<String, Object>();
+    private List<String> info=new ArrayList<String>();
     private String serviceAddress; // ip + port
 
-    public RPCHeartBeatPacket(long time, Map<String, Object> info, String serviceAddress) {
+    public RPCHeartBeatPacket(long time, List<String> info, String serviceAddress) {
         this.time = time;
         this.info = info;
         this.serviceAddress = serviceAddress;
@@ -28,11 +30,11 @@ public class RPCHeartBeatPacket implements RPCSignal, Serializable{
         this.time = time;
     }
 
-    public Map<String, Object> getInfo() {
+    public List<String> getInfo() {
         return info;
     }
 
-    public void setInfo(Map<String, Object> info) {
+    public void setInfo(List<String> info) {
         this.info = info;
     }
 

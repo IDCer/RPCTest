@@ -1,10 +1,15 @@
 package registry;
 
+import api.interfaces.ClearMemoryConfig;
+import registry.thread.ClearMemoryThread;
 import registry.thread.RegistryThread;
 
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class RPCRegistry {
     /**
@@ -25,7 +30,7 @@ public class RPCRegistry {
     /**
      * heart record table
      */
-    private static HashMap<String, Long> heartTable = new HashMap<String, Long>();
+    public static HashMap<String, Long> heartTable = new HashMap<String, Long>();
 
     public RPCRegistry(String address) {
         this.address = address;
@@ -45,6 +50,8 @@ public class RPCRegistry {
 
             // 启动清理无连接服务器节点的线程
             // ...
+            ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+            service.scheduleAtFixedRate(new ClearMemoryThread(),0, ClearMemoryConfig.clearIntervalTime, TimeUnit.SECONDS);
 
             while(running) {
                 // stop to listen the server or client

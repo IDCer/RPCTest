@@ -1,5 +1,6 @@
 package server;
 
+import api.interfaces.HeartBeatConfig;
 import api.interfaces.RPCAnnotation;
 import api.interfaces.RPCRegistryCenter;
 import api.interfaces.RPCRegistryCenterConfig;
@@ -54,7 +55,7 @@ public class RPCServer {
 //            }
             //定时发送心跳包
             ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-            service.scheduleAtFixedRate(new HeartBeatThread(this),0,10, TimeUnit.SECONDS);
+            service.scheduleAtFixedRate(new HeartBeatThread(this),0, HeartBeatConfig.sendIntervalTime, TimeUnit.SECONDS);
 
             while (true) {
                 // stop to listen the client thread

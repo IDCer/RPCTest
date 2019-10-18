@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * 该线程用于服务端对注册中心进行心跳包的发送
@@ -28,7 +29,7 @@ public class HeartBeatThread implements Runnable {
         long currentTime = System.currentTimeMillis();
 
         // 构建心跳包
-        RPCHeartBeatPacket rpcHeartBeatPacket = new RPCHeartBeatPacket(currentTime, rpcServer.getServiceMap(), rpcServer.getAddressService());
+        RPCHeartBeatPacket rpcHeartBeatPacket = new RPCHeartBeatPacket(currentTime, new ArrayList<>(rpcServer.getServiceMap().keySet()), rpcServer.getAddressService());
 
         // 发送心跳包
         System.out.println("发送心跳包...");

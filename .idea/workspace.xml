@@ -2,304 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e8f965-5908-435f-b8e2-3e25da068bf1" name="Default" comment="添加了注册中心与服务器的心跳.&#10;目前还需要实现的功能:">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/model/RPCHeartBeatPacket.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/registry/RPCRegistry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/registry/RegistryAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/registry/thread/ClearMemoryThread.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/registry/thread/RegistryThread.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/thread/HeartBeatThread.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/thread/ServerThreadNew.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RPCTest/api/interfaces/RPCRegistryCenterConfig.class" afterPath="$PROJECT_DIR$/out/production/RPCTest/api/interfaces/RPCRegistryCenterConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RPCTest/api/interfaces/RPCSignal.class" afterPath="$PROJECT_DIR$/out/production/RPCTest/api/interfaces/RPCSignal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RPCTest/api/model/RPCRequest.class" afterPath="$PROJECT_DIR$/out/production/RPCTest/api/model/RPCRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RPCTest/server/RPCServer.class" afterPath="$PROJECT_DIR$/out/production/RPCTest/server/RPCServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RPCTest/server/ServerAction.class" afterPath="$PROJECT_DIR$/out/production/RPCTest/server/ServerAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RPCTest/server/impl/MessageServiceImp.class" afterPath="$PROJECT_DIR$/out/production/RPCTest/server/impl/MessageServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/interfaces/RPCRegistryCenterConfig.java" afterPath="$PROJECT_DIR$/src/api/interfaces/RPCRegistryCenterConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/interfaces/RPCSignal.java" afterPath="$PROJECT_DIR$/src/api/interfaces/RPCSignal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/model/RPCRequest.java" afterPath="$PROJECT_DIR$/src/api/model/RPCRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/RPCServer.java" afterPath="$PROJECT_DIR$/src/server/RPCServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/ServerAction.java" afterPath="$PROJECT_DIR$/src/server/ServerAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/impl/MessageServiceImp.java" afterPath="$PROJECT_DIR$/src/server/impl/MessageServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/thread/ServerThread.java" afterPath="$PROJECT_DIR$/src/server/thread/ServerThread.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/model/RPCHeartBeatPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/model/RPCHeartBeatPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registry/RPCRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registry/RPCRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registry/thread/ClearMemoryThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registry/thread/ClearMemoryThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/RPCServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/RPCServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/thread/HeartBeatThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/thread/HeartBeatThread.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HeartBeatThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/thread/HeartBeatThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="30" column="89" lean-forward="true" selection-start-line="30" selection-start-column="89" selection-end-line="30" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#453#454#0" expanded="true" />
-                <element signature="e#495#496#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistryThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/registry/thread/RegistryThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RPCRegistry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/registry/RPCRegistry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="54" column="38" lean-forward="true" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#306#322#0" expanded="true" />
-                <element signature="e#575#589#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RPCServer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/RPCServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="116" column="31" lean-forward="true" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#688#704#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
-                <element signature="e#1145#1146#0" expanded="true" />
-                <element signature="e#4744#4745#0" expanded="true" />
-                <element signature="e#4777#4778#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/ServerAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerThreadNew.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/thread/ServerThreadNew.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="54" column="11" lean-forward="true" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/client/test/java/com/idc/client/RpcClientApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/client/interfaces/heartbeat/HeartbeatConfig.java" />
-        <option value="$PROJECT_DIR$/src/server/impl/HeartbeatClient.java" />
-        <option value="$PROJECT_DIR$/src/server/interfaces/interfaces/RPCSignal.java" />
-        <option value="$PROJECT_DIR$/src/server/RpcServerApplication.java" />
-        <option value="$PROJECT_DIR$/src/server/interfaces/RpcApiApplication.java" />
-        <option value="$PROJECT_DIR$/src/client/test/RpcClientApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/client/interfaces/service/MessageService.java" />
-        <option value="$PROJECT_DIR$/src/server/test/RpcServerApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/server/interfaces/interfaces/impl/MyRegistryCenterImpl.java" />
-        <option value="$PROJECT_DIR$/src/api/model/Request.java" />
-        <option value="$PROJECT_DIR$/src/api/interfaces/RPCServiceDiscovery.java" />
-        <option value="$PROJECT_DIR$/src/api/interfaces/RPCRegistryCenter.java" />
-        <option value="$PROJECT_DIR$/src/api/interfaces/RPCLoadBalance.java" />
-        <option value="$PROJECT_DIR$/src/server/thread/ServerProcessHandler.java" />
-        <option value="$PROJECT_DIR$/src/api/interfaces/RPCAnnotation.java" />
-        <option value="$PROJECT_DIR$/src/server/impl/RPCRegisterCenterImpl.java" />
-        <option value="$PROJECT_DIR$/src/server/impl/MyRegistryCenterImpl.java" />
-        <option value="$PROJECT_DIR$/src/api/service/MessageService.java" />
-        <option value="$PROJECT_DIR$/src/server/impl/RPCServiceDiscoveryImpl.java" />
-        <option value="$PROJECT_DIR$/src/client/ClientAction.java" />
-        <option value="$PROJECT_DIR$/src/client/RPCClient.java" />
-        <option value="$PROJECT_DIR$/src/server/impl/RPCRegistryCenterImpl.java" />
-        <option value="$PROJECT_DIR$/src/client/proxy/RPCClientProxy.java" />
-        <option value="$PROJECT_DIR$/src/api/interfaces/RPCRegistryCenterConfig.java" />
-        <option value="$PROJECT_DIR$/src/server/thread/ServerThread.java" />
-        <option value="$PROJECT_DIR$/src/registry/thread/StartServerThread.java" />
-        <option value="$PROJECT_DIR$/src/registry/thread/ClearMemoryThread.java" />
-        <option value="$PROJECT_DIR$/src/api/interfaces/RPCSignal.java" />
-        <option value="$PROJECT_DIR$/src/server/impl/MessageServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/registry/thread/RegistryThread.java" />
-        <option value="$PROJECT_DIR$/src/api/model/RPCHeartBeatPacket.java" />
-        <option value="$PROJECT_DIR$/src/api/model/RPCRequest.java" />
-        <option value="$PROJECT_DIR$/src/registry/RegistryAction.java" />
-        <option value="$PROJECT_DIR$/src/registry/RPCRegistry.java" />
-        <option value="$PROJECT_DIR$/src/server/thread/HeartBeatThread.java" />
-        <option value="$PROJECT_DIR$/src/server/ServerAction.java" />
-        <option value="$PROJECT_DIR$/src/server/thread/ServerThreadNew.java" />
-        <option value="$PROJECT_DIR$/src/server/RPCServer.java" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="745" />
-    <option name="height" value="788" />
-  </component>
+  <component name="ProjectId" id="1SMYNoQJrDEIE5W2cTZ0MrhFOtS" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="proxy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-              <item name="thread" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPCTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPCTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="thread" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -328,109 +57,70 @@
   </component>
   <component name="RunManager" selected="Application.ServerAction">
     <configuration name="ClientAction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="client.ClientAction" />
+      <module name="RPCTest" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="client.ClientAction" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="RPCTest" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="RPCTest" />
-      <envs />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="RegistryAction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="registry.RegistryAction" />
+      <module name="RPCTest" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="registry.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="registry.RegistryAction" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="RPCTest" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="ServerAction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="server.ServerAction" />
+      <module name="RPCTest" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="server.ServerAction" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="RPCTest" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.ServerAction" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ClientAction" />
-      <item index="3" class="java.lang.String" itemvalue="Application.RegistryAction" />
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.ServerAction" />
+      <item itemvalue="Application.ClientAction" />
+      <item itemvalue="Application.RegistryAction" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.ServerAction" />
-        <item index="1" class="java.lang.String" itemvalue="Application.RegistryAction" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ClientAction" />
+      <list>
+        <item itemvalue="Application.ServerAction" />
+        <item itemvalue="Application.RegistryAction" />
+        <item itemvalue="Application.ClientAction" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -443,332 +133,22 @@
       <workItem from="1571312175497" duration="248000" />
       <workItem from="1571312559267" duration="916000" />
       <workItem from="1571313716170" duration="17034000" />
+      <workItem from="1571374895983" duration="2988000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21986000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38056013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2246596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server/ServerAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/proxy/RPCClientProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="121" column="32" lean-forward="true" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/server.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/test/java/com/idc/client/RpcClientApplicationTests.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/interfaces/heartbeat/HeartbeatConfig.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/model/RPCRequest.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/RPCRegistryCenterConfig.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/RPCServiceDiscovery.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/RPCAnnotation.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/service/MessageService.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/RPCSignal.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/RpcClientApplication.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/RpcServerApplication.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/RPCLoadBalance.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/RpcApiApplication.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/impl/HeartbeatClient.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/interfaces/service/MessageService.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/test/RpcClientApplicationTests.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/impl/RPCRegisterCenterImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/RPCRegistryCenter.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/interfaces/interfaces/impl/MyRegistryCenterImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/test/RpcServerApplicationTests.java" />
-    <entry file="file://$PROJECT_DIR$/src/api/x" />
-    <entry file="file://$PROJECT_DIR$/src/api/interfaces/RPCServiceDiscovery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/impl/RPCRegisterCenterImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/api/interfaces/RPCLoadBalance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/interfaces/RPCAnnotation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/service/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/proxy/RPCClientProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/impl/RPCServiceDiscoveryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/registry/thread/StartServerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/JDK/src.zip!/java/util/concurrent/Executors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="253" column="0" lean-forward="true" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/interfaces/RPCSignal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/registry/thread/ClearMemoryThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/registry/RegistryAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/impl/MessageServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/interfaces/RPCRegistryCenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/interfaces/RPCRegistryCenterConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/thread/ServerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="78" column="5" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="78" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ClientAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/model/RPCRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="e#880#881#0" expanded="true" />
-            <element signature="e#907#908#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/RPCClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="22" column="122" lean-forward="false" selection-start-line="22" selection-start-column="108" selection-end-line="22" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/impl/RPCRegistryCenterImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/registry/RPCRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="54" column="38" lean-forward="true" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#306#322#0" expanded="true" />
-            <element signature="e#575#589#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/model/RPCHeartBeatPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#336#352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/registry/thread/RegistryThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/thread/HeartBeatThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="30" column="89" lean-forward="true" selection-start-line="30" selection-start-column="89" selection-end-line="30" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/thread/ServerThreadNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="54" column="11" lean-forward="true" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/ServerAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/RPCServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="116" column="31" lean-forward="true" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#688#704#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1145#1146#0" expanded="true" />
-            <element signature="e#4744#4745#0" expanded="true" />
-            <element signature="e#4777#4778#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
