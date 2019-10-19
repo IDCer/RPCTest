@@ -8,6 +8,7 @@ import registry.RPCRegistry;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class RegistryThread implements Runnable  {
 
@@ -56,10 +57,11 @@ public class RegistryThread implements Runnable  {
                 rpcRegistry.register(rpcRegisterRequest.getServiceName(), rpcRegisterRequest.getServiceAddress());
 
             } else if (signalKind.equals("QUERY")) { // 如果信号类型为QUERY,即客户端查询服务
-                System.out.println("接收到客户端的查询请求");
+//                System.out.println("接收到客户端的查询请求");
                 RPCServiceQueryRequest rpcServiceQueryRequest = (RPCServiceQueryRequest) rpcSignal;
                 // 注册中心进行查询操作,返回查询地址
-                String serviceAddress = rpcRegistry.query(rpcServiceQueryRequest.getServiceName());
+//                String serviceAddress = rpcRegistry.query(rpcServiceQueryRequest.getServiceName());
+                ArrayList<String> serviceAddress = rpcRegistry.queryServiceList(rpcServiceQueryRequest.getServiceName());
 
                 // 发送结果给客户端
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(client.getOutputStream());
