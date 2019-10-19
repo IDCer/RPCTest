@@ -10,6 +10,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +20,7 @@ public class RPCServer {
     /**
      * 用于记录接口与实现类之间的关系,便于客户端的查询
      */
-    private static final HashMap<String, Object> serviceMap = new HashMap<String, Object>();
+    private static final ConcurrentHashMap<String, Object> serviceMap = new ConcurrentHashMap<String, Object>();
 
     // 服务地址
     private String serviceAddress;

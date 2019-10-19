@@ -20,12 +20,12 @@ public class RPCRegistry {
     /**
      * Map结构,用于存储服务器注册的服务节点的信息<服务名, 服务器IP地址>
      */
-    public static final HashMap<String, String> serviceMap = new HashMap<String, String>();
+    public static final ConcurrentHashMap<String, String> serviceMap = new ConcurrentHashMap<String, String>();
 
     /**
      * Map结构,用于存储服务器注册的服务节点的信息<服务名, 服务器IP地址列表>
      */
-    public static final HashMap<String, ArrayList<String>> serviceMapList = new HashMap<String, ArrayList<String>>();
+    public static final ConcurrentHashMap<String, ArrayList<String>> serviceMapList = new ConcurrentHashMap<String, ArrayList<String>>();
 
     /**
      * 注册中心开启SocketServer的端口
@@ -40,7 +40,7 @@ public class RPCRegistry {
     /**
      * Map表结构,用于记录服务器心跳时间<服务器ip地址, 最近存活时间>
      */
-    public static HashMap<String, Long> heartTable = new HashMap<String, Long>();
+    public static ConcurrentHashMap<String, Long> heartTable = new ConcurrentHashMap<String, Long>();
 
     public RPCRegistry(String address) {
         this.address = address;
@@ -82,7 +82,7 @@ public class RPCRegistry {
     public void register(String serviceName, String serviceAddress) {
         // 开始注册服务
         System.out.println("注册中心开始注册服务...");
-        serviceMap.put(serviceName, serviceAddress);
+//        serviceMap.put(serviceName, serviceAddress);
 
         // 添加链表
         ArrayList<String> temp = null;
@@ -94,7 +94,7 @@ public class RPCRegistry {
         temp.add(serviceAddress);
         serviceMapList.put(serviceName, temp);
 
-        System.out.println("成功注册的服务:" + serviceMap);
+//        System.out.println("成功注册的服务:" + serviceMap);
         System.out.println("成功注册的服务列表:" + serviceMapList);
 
         // 持久化服务节点
@@ -234,14 +234,14 @@ public class RPCRegistry {
     /**
      * 注册中心进行查询操作,针对一个
      */
-    public String query(String serviceName) {
-        if (serviceMap.containsKey(serviceName)) {
-            return serviceMap.get(serviceName);
-        } else {
-            System.out.println("无法寻找到该服务:{" + serviceName + "}");
-        }
-        return null;
-    }
+//    public String query(String serviceName) {
+//        if (serviceMap.containsKey(serviceName)) {
+//            return serviceMap.get(serviceName);
+//        } else {
+//            System.out.println("无法寻找到该服务:{" + serviceName + "}");
+//        }
+//        return null;
+//    }
 
     /**
      * 客户端查询可用服务列表,注册中心返回列表,

@@ -8,6 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class ServerThread implements Runnable {
@@ -16,10 +17,10 @@ public class ServerThread implements Runnable {
     private Socket client;
 
     // 用于记录服务和服务地址的映射表
-    private Map<String, Object> handlerMap;
+    private ConcurrentHashMap<String, Object> handlerMap;
 
     // 构造函数
-    public ServerThread(Socket client, Map<String, Object> handlerMap) {
+    public ServerThread(Socket client, ConcurrentHashMap<String, Object> handlerMap) {
         this.client = client;
         this.handlerMap = handlerMap;
     }
