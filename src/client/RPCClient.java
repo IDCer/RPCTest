@@ -2,7 +2,6 @@ package client;
 
 import api.model.RPCServiceQueryRequest;
 import client.proxy.RPCClientProxy;
-
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.Proxy;

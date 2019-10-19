@@ -14,6 +14,8 @@ public class ClientAction {
         String serviceName = RemoteService.class.getAnnotation(RPCAnnotation.class).value().getName();
         String serviceAddress = rpcClient.queryService(serviceName, RPCConfig.registryAddress);
 
+//        System.out.println("serviceAddress:" + serviceAddress);
+
         if (serviceAddress == null) {
             System.out.println("该服务不存在");
         } else {

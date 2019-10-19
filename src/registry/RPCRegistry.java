@@ -3,7 +3,6 @@ package registry;
 import api.config.RPCConfig;
 import registry.thread.ClearMemoryThread;
 import registry.thread.RegistryThread;
-
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ public class RPCRegistry {
 
             // 启动清理无连接服务器节点的线程
             ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-            service.scheduleAtFixedRate(new ClearMemoryThread(),0, RPCConfig.clearIntervalTime, TimeUnit.SECONDS);
+            service.scheduleAtFixedRate(new ClearMemoryThread(this),0, RPCConfig.clearIntervalTime, TimeUnit.SECONDS);
 
             while(running) {
                 // 阻塞监听来自客户端或者服务端的socket请求
@@ -93,9 +92,10 @@ public class RPCRegistry {
      * 清理失联服务所存储的节点
      */
     public void clear(String serviceAddress) {
+//        System.out.println("将要删除的地址:" + serviceAddress);
         List<String> willDelete = new ArrayList<>();
         for(Map.Entry<String, String> entry : RPCRegistry.serviceMap.entrySet()){
-            if (entry.getValue() == serviceAddress) {
+            if (entry.getValue().equals(serviceAddress)) {
                 willDelete.add(entry.getKey());
             }
         }
@@ -104,7 +104,9 @@ public class RPCRegistry {
             RPCRegistry.serviceMap.remove(serviceName);
         }
 
-        System.out.println("serviceMap:" + serviceMap);
+//        System.out.println("willDelete:" + willDelete);
+//
+//        System.out.println("serviceMap:" + serviceMap);
 
     }
 
