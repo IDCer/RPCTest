@@ -28,6 +28,8 @@ public class RPCClientProxy implements InvocationHandler {
         // 参数名
         rpcRequest.setParameters(args);
 
+        System.out.println("rpcRequest:" + rpcRequest);
+
         // 获取主机号和端口
         String host = serviceAddress.split(":")[0];
         int port = Integer.parseInt(serviceAddress.split(":")[1]);

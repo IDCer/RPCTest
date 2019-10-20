@@ -35,6 +35,7 @@ public class ServerThread implements Runnable {
             // 反序列化
             RPCRequest rpcRequest = (RPCRequest) objectInputStream.readObject();
             Object result = invoke(rpcRequest);
+//            System.out.println("rpcRequest:" + rpcRequest);
 
             // 返回客户端
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(client.getOutputStream());
@@ -71,6 +72,11 @@ public class ServerThread implements Runnable {
 
         // 获取服务的类对象
         Object service = handlerMap.get(rpcRequest.getClassName());
+
+//        System.out.println("service:" + service);
+//        System.out.println("rpcRequest.getMethodName():" + rpcRequest.getMethodName());
+//        System.out.println("service.getClass():" + service.getClass());
+//        System.out.println("getMethod(rpcRequest.getMethodName(), parameterTypes):" + service.getClass().getMethod(rpcRequest.getMethodName(), parameterTypes));
 
         // 获取这个服务类的方法
         Method method = service.getClass().getMethod(rpcRequest.getMethodName(), parameterTypes);

@@ -37,17 +37,15 @@ public class RegistryThread implements Runnable  {
             // 读取信号类型
             String signalKind = rpcSignal.getKind();
 
-            System.out.println("信号类型: " + signalKind);
+//            System.out.println("信号类型: " + signalKind);
 
             // 如果信号类型为HEART,服务器心跳
             if (signalKind.equals("HEART")) {
                 // 接收到服务器心跳时,实时更新heartTable
-
                 // 强转数据类型
                 RPCHeartBeatPacket rpcHeartBeatPacket = (RPCHeartBeatPacket) rpcSignal;
-
                 // 更新
-                rpcRegistry.update(rpcHeartBeatPacket.getServiceAddress(), rpcHeartBeatPacket.getTime());
+                rpcRegistry.update(rpcHeartBeatPacket);
 
             } else if (signalKind.equals("REGISTER")) { // 如果信号类型为REGISTER,服务器第一次注册
                 System.out.println("接收到注册请求...");
@@ -57,7 +55,7 @@ public class RegistryThread implements Runnable  {
                 rpcRegistry.register(rpcRegisterRequest.getServiceName(), rpcRegisterRequest.getServiceAddress());
 
             } else if (signalKind.equals("QUERY")) { // 如果信号类型为QUERY,即客户端查询服务
-//                System.out.println("接收到客户端的查询请求");
+                System.out.println("接收到客户端的查询请求");
                 RPCServiceQueryRequest rpcServiceQueryRequest = (RPCServiceQueryRequest) rpcSignal;
                 // 注册中心进行查询操作,返回查询地址
 //                String serviceAddress = rpcRegistry.query(rpcServiceQueryRequest.getServiceName());

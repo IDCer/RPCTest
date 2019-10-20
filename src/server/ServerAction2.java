@@ -1,6 +1,7 @@
 package server;
 
 import api.config.RPCConfig;
+import server.impl.RemoteReckonServiceImpB;
 import server.impl.RemoteServiceImp;
 
 public class ServerAction2 {
@@ -8,7 +9,8 @@ public class ServerAction2 {
         // 创建一个服务器
         RPCServer rpcServer = new RPCServer(RPCConfig.serverAddress2);
         // 服务器向注册中心注册服务
-        rpcServer.bindService(RPCConfig.registryAddress, new RemoteServiceImp());
+        rpcServer.bindService(RPCConfig.registryAddress, new RemoteServiceImp(), new RemoteReckonServiceImpB());
+//        rpcServer.bindService(RPCConfig.registryAddress, new RemoteReckonServiceImpB());
         // 启动服务器
         rpcServer.start();
     }

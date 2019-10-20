@@ -8,6 +8,7 @@ import server.thread.ServerThread;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,7 +21,9 @@ public class RPCServer {
     /**
      * 用于记录接口与实现类之间的关系,便于客户端的查询
      */
-    private static final ConcurrentHashMap<String, Object> serviceMap = new ConcurrentHashMap<String, Object>();
+    private static final ConcurrentHashMap<String, Object> serviceMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, ArrayList<String>> serviceMapL = new ConcurrentHashMap<>();
+
 
     // 服务地址
     private String serviceAddress;
@@ -46,7 +49,7 @@ public class RPCServer {
         try (ServerSocket serverSocket = new ServerSocket(port)){
             //定时发送心跳包
             ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-            service.scheduleAtFixedRate(new HeartBeatThread(serviceAddress),0, RPCConfig.sendIntervalTime, TimeUnit.SECONDS);
+            service.scheduleAtFixedRate(new HeartBeatThread(serviceMapL, serviceAddress),0, RPCConfig.sendIntervalTime, TimeUnit.SECONDS);
 
             while (true) {
                 // 阻塞监听线程
@@ -66,6 +69,11 @@ public class RPCServer {
      */
     public void bindService(String registryAddress, Object... services) {
         System.out.println("服务器向注册中心发送服务注册请求...");
+        /**
+         * 绑定服务列表,<String, ArrayList<String>>,第一个参数是服务器IP地址,第二个是服务器所提供的服务
+         */
+        ArrayList<String> sl = new ArrayList<>();
+
         for (Object service : services) {
             // 获取服务的接口类对象
             RPCAnnotation rpcAnnotation = service.getClass().getAnnotation(RPCAnnotation.class);
@@ -82,7 +90,15 @@ public class RPCServer {
 
             // 加入{接口:实现类},用于查询客户端的请求
             serviceMap.put(serviceName, service);
+
+            // 加入服务列表
+            sl.add(serviceName);
+
+            System.out.println("serviceMap:" + serviceMap);
         }
+
+        serviceMapL.put(serviceAddress, sl);
+        System.out.println("serviceMapL:" + serviceMapL);
     }
 
     public void bind(String registryAddress, RPCRegisterRequest rpcRegisterRequest) {

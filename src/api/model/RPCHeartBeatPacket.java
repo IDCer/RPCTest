@@ -20,11 +20,17 @@ public class RPCHeartBeatPacket implements RPCSignal, Serializable{
     /**
      * 服务提供的地址
      */
-    private String serviceAddress; // ip + port
+    private String serviceAddress;
 
-    public RPCHeartBeatPacket(long time, String serviceAddress) {
+    /**
+     * 该服务器下说提供的服务列表
+     */
+    private ArrayList<String> serviceList;
+
+    public RPCHeartBeatPacket(long time, String serviceAddress, ArrayList<String> serviceList) {
         this.time = time;
         this.serviceAddress = serviceAddress;
+        this.serviceList = serviceList;
         this.kind = "HEART";
     }
 
@@ -52,12 +58,21 @@ public class RPCHeartBeatPacket implements RPCSignal, Serializable{
         this.kind = kind;
     }
 
+    public ArrayList<String> getServiceList() {
+        return serviceList;
+    }
+
+    public void setServiceList(ArrayList<String> serviceList) {
+        this.serviceList = serviceList;
+    }
+
     @Override
     public String toString() {
         return "RPCHeartBeatPacket{" +
                 "kind='" + kind + '\'' +
                 ", time=" + time +
                 ", serviceAddress='" + serviceAddress + '\'' +
+                ", serviceList=" + serviceList +
                 '}';
     }
 }

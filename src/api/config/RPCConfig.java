@@ -29,7 +29,6 @@ public interface RPCConfig {
      */
     public String serverAddress1 = "127.0.0.1:11225";
     public String serverAddress2 = "127.0.0.1:11234";
-    public String serverAddress3 = "127.0.0.1:34725";
 
     /**
      * 注册中心服务节点存储地址

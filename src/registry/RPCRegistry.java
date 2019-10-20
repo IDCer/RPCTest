@@ -1,6 +1,7 @@
 package registry;
 
 import api.config.RPCConfig;
+import api.model.RPCHeartBeatPacket;
 import registry.thread.ClearMemoryThread;
 import registry.thread.RegistryThread;
 
@@ -20,12 +21,12 @@ public class RPCRegistry {
     /**
      * Map结构,用于存储服务器注册的服务节点的信息<服务名, 服务器IP地址>
      */
-    public static final ConcurrentHashMap<String, String> serviceMap = new ConcurrentHashMap<String, String>();
+    public static final ConcurrentHashMap<String, String> serviceMap = new ConcurrentHashMap<>();
 
     /**
      * Map结构,用于存储服务器注册的服务节点的信息<服务名, 服务器IP地址列表>
      */
-    public static final ConcurrentHashMap<String, ArrayList<String>> serviceMapList = new ConcurrentHashMap<String, ArrayList<String>>();
+    public static final ConcurrentHashMap<String, ArrayList<String>> serviceMapList = new ConcurrentHashMap<>();
 
     /**
      * 注册中心开启SocketServer的端口
@@ -40,13 +41,13 @@ public class RPCRegistry {
     /**
      * Map表结构,用于记录服务器心跳时间<服务器ip地址, 最近存活时间>
      */
-    public static ConcurrentHashMap<String, Long> heartTable = new ConcurrentHashMap<String, Long>();
+    public static ConcurrentHashMap<String, Long> heartTable = new ConcurrentHashMap<>();
 
     public RPCRegistry(String address) {
         this.address = address;
         this.running = true;
         // 重启注册中心时会热部署,读取已经存储了的服务
-        hotStart();
+//        hotStart();
     }
 
     /**
@@ -82,7 +83,6 @@ public class RPCRegistry {
     public void register(String serviceName, String serviceAddress) {
         // 开始注册服务
         System.out.println("注册中心开始注册服务...");
-//        serviceMap.put(serviceName, serviceAddress);
 
         // 添加链表
         ArrayList<String> temp = null;
@@ -94,7 +94,6 @@ public class RPCRegistry {
         temp.add(serviceAddress);
         serviceMapList.put(serviceName, temp);
 
-//        System.out.println("成功注册的服务:" + serviceMap);
         System.out.println("成功注册的服务列表:" + serviceMapList);
 
         // 持久化服务节点
@@ -128,44 +127,32 @@ public class RPCRegistry {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-    }
-
-    /**
-     * 热启动,解决注册中心宕机后重启数据丢失问题,这里热启动主要是更新serviceMap
-     */
-    public void hotStart() {
-        String nodePath = RPCConfig.nodeNameSpace;
-        File nodeFolder = new File(nodePath);
-        String [] list = nodeFolder.list();
-        for (String service : list) {
-            System.out.println(service);
-        }
-
-        // 当存在节点的时候才更新
-        if (list.length != 0) {
-            // 每个服务的接口名
-            for (String sn : list) {
-                String [] serviceList = new File(RPCConfig.nodeNameSpace + sn).list();
-                ArrayList<String> temp = new ArrayList<>();
-                // 该服务下存在的服务ip地址
-                for (String s : serviceList) {
-                    String newServiceAddress = s.split("-")[0] + ":" + s.split("-")[1];
-                    temp.add(newServiceAddress);
-//                    serviceMap.put(sn, newServiceAddress);
-//                    System.out.println("serviceName:" + sn);
-//                    System.out.println("serviceAddress:" + newServiceAddress);
-                }
-                serviceMapList.put(sn, temp);
-            }
-        }
     }
 
     /**
      * 更新心跳表,只管更新,不管其是否超时等等
      */
-    public void update(String serverAddress, long updateTime) {
+    public void update(RPCHeartBeatPacket rpcHeartBeatPacket) {
+        // 更新心跳表
+        String serverAddress = rpcHeartBeatPacket.getServiceAddress();
+        long updateTime = rpcHeartBeatPacket.getTime();
         heartTable.put(serverAddress, updateTime);
+
+        // 接收心跳不仅仅要更新heartTable,还需要更新serviceMapList<服务名, 服务器IP地址列表>
+        ArrayList<String> sl = rpcHeartBeatPacket.getServiceList();
+        for (String sn : sl) {
+            ArrayList<String> temp = serviceMapList.get(sn);
+            // 如果列表还未存在
+            if (temp == null || temp.isEmpty()) {
+                temp = new ArrayList<>();
+            }
+            if (!temp.contains(serverAddress)){
+                temp.add(serverAddress);
+               serviceMapList.put(sn, temp);
+             }
+        }
+        System.out.println(serviceMapList);
+
     }
 
     /**
