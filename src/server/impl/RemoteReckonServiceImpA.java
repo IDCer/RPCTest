@@ -12,10 +12,16 @@ public class RemoteReckonServiceImpA implements RemoteReckonService, Serializabl
         if (a == 0 || b == 0) {
             return 0;
         }
-        int sum = 0;
-        for (int i = 0; i < a; i++) {
-            sum += b;
+        int one = 1;
+        if (a * b < 0) {
+            one = -1;
         }
-        return sum;
+        int a1 = Math.abs(a);
+        int b1 = Math.abs(b);
+        int sum = 0;
+        for (int i = 0; i < a1; i++) {
+            sum += b1;
+        }
+        return sum * one;
     }
 }

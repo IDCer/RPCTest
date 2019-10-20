@@ -100,7 +100,7 @@ public class RPCRegistry {
         for(Map.Entry<String, ArrayList<String>> entry : RPCRegistry.serviceMapList.entrySet()){
             for (String address : entry.getValue()) {
                 System.out.println(entry.getKey() + "=" + address);
-                resistNode(entry.getKey(), address);
+//                resistNode(entry.getKey(), address);
             }
         }
 
