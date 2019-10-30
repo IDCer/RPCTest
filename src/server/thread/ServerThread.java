@@ -1,6 +1,7 @@
 package server.thread;
 
 
+import api.config.RPCConfig;
 import api.model.RPCRequest;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -35,7 +36,7 @@ public class ServerThread implements Runnable {
             // 反序列化
             RPCRequest rpcRequest = (RPCRequest) objectInputStream.readObject();
             Object result = invoke(rpcRequest);
-//            System.out.println("rpcRequest:" + rpcRequest);
+            System.out.println(RPCConfig.serverHead + "收到调用{" + rpcRequest.getClassName() + "}服务的请求...");
 
             // 返回客户端
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(client.getOutputStream());

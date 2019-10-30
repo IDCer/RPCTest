@@ -51,11 +51,11 @@ public class RPCServer {
             ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
             service.scheduleAtFixedRate(new HeartBeatThread(serviceMapL, serviceAddress),0, RPCConfig.sendIntervalTime, TimeUnit.SECONDS);
 
+            System.out.println(RPCConfig.serverHead + "服务器启动成功...");
             while (true) {
                 // 阻塞监听线程
-                System.out.println("等待客户端的请求...");
                 Socket socket = serverSocket.accept();
-                System.out.println("收到一个客户端请求:{" + socket.getLocalAddress() + ":" + socket.getLocalPort() + "}");
+//                System.out.println("收到一个客户端请求:{" + socket.getLocalAddress() + ":" + socket.getLocalPort() + "}");
                 // 放入线程去执行
                 new Thread(new ServerThread(socket, serviceMap)).start();
             }
@@ -68,7 +68,7 @@ public class RPCServer {
      * 服务器向注册中心注册服务,可以是多个服务一起注册
      */
     public void bindService(String registryAddress, Object... services) {
-        System.out.println("服务器向注册中心发送服务注册请求...");
+        System.out.println(RPCConfig.serverHead + "服务器正在向注册中心发送服务注册请求...");
         /**
          * 绑定服务列表,<String, ArrayList<String>>,第一个参数是服务器IP地址,第二个是服务器所提供的服务
          */
@@ -94,11 +94,11 @@ public class RPCServer {
             // 加入服务列表
             sl.add(serviceName);
 
-            System.out.println("serviceMap:" + serviceMap);
+//            System.out.println("serviceMap:" + serviceMap);
         }
 
         serviceMapL.put(serviceAddress, sl);
-        System.out.println("serviceMapL:" + serviceMapL);
+        System.out.println(RPCConfig.serverHead + "服务注册完毕:" + serviceMapL);
     }
 
     public void bind(String registryAddress, RPCRegisterRequest rpcRegisterRequest) {

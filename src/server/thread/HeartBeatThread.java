@@ -60,7 +60,7 @@ public class HeartBeatThread implements Runnable {
             objectOutputStream.close();
             socket.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(RPCConfig.serverHead + "注册中心无响应...");
         }
     }
 }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RPCTest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RPCTest_jar</output-path>
+    <root id="archive" name="RPCTest.jar">
+      <element id="module-output" name="RPCTest" />
+    </root>
+  </artifact>
+</component>

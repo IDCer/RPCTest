@@ -63,12 +63,10 @@ public class RPCRegistry {
             // 启动清理无连接服务器节点的线程
             ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
             service.scheduleAtFixedRate(new ClearMemoryThread(this),0, RPCConfig.clearIntervalTime, TimeUnit.SECONDS);
-
+            System.out.println(RPCConfig.registryHead + "注册中心启动成功...");
             while(running) {
                 // 阻塞监听来自客户端或者服务端的socket请求
-                System.out.println("等待请求...");
                 Socket socket = serverSocket.accept();
-                System.out.println("接受到一个请求,开始处理...");
                 // 注册中心线程进行处理
                 new Thread(new RegistryThread(socket, this)).start();
             }
@@ -81,8 +79,6 @@ public class RPCRegistry {
      * 在注册中心注册服务节点
      */
     public void register(String serviceName, String serviceAddress) {
-        // 开始注册服务
-        System.out.println("注册中心开始注册服务...");
 
         // 添加链表
         ArrayList<String> temp = null;
@@ -94,12 +90,12 @@ public class RPCRegistry {
         temp.add(serviceAddress);
         serviceMapList.put(serviceName, temp);
 
-        System.out.println("成功注册的服务列表:" + serviceMapList);
+        System.out.println(RPCConfig.registryHead + "成功注册的服务列表:" + serviceMapList);
 
         // 持久化服务节点
         for(Map.Entry<String, ArrayList<String>> entry : RPCRegistry.serviceMapList.entrySet()){
             for (String address : entry.getValue()) {
-                System.out.println(entry.getKey() + "=" + address);
+//                System.out.println(entry.getKey() + "=" + address);
 //                resistNode(entry.getKey(), address);
             }
         }
@@ -151,7 +147,7 @@ public class RPCRegistry {
                serviceMapList.put(sn, temp);
              }
         }
-        System.out.println(serviceMapList);
+//        System.out.println(serviceMapList);
 
     }
 
@@ -172,7 +168,7 @@ public class RPCRegistry {
         }
         // 删除
         for (String serviceName : willDelete) {
-            System.out.println("serviceName:" + serviceName + ",serviceAddress" + serviceAddress);
+//            System.out.println("serviceName:" + serviceName + ",serviceAddress" + serviceAddress);
             // 删除持久化
             deleteLocalNode(serviceName, serviceAddress);
 
@@ -181,7 +177,7 @@ public class RPCRegistry {
 //            serviceMap.remove(serviceName);
             removeServiceAddress(serviceName, serviceAddress);
         }
-        System.out.println("清理无服务节点后的serviceMapList:" + serviceMapList);
+        System.out.println(RPCConfig.registryHead + "清理无响应服务节点后的服务列表:" + serviceMapList);
     }
 
     /**
@@ -237,7 +233,7 @@ public class RPCRegistry {
         if (serviceMapList.containsKey(serviceName)) {
             return serviceMapList.get(serviceName);
         } else {
-            System.out.println("无法寻找到该服务:{" + serviceName + "}");
+            System.out.println(RPCConfig.registryHead + "无法寻找到该服务:{" + serviceName + "}...");
         }
         return null;
     }

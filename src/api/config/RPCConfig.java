@@ -22,15 +22,36 @@ public interface RPCConfig {
     /**
      * 注册中心ip地址
      */
+//    public String registryAddress = "222.20.79.210:2181";
     public String registryAddress = "127.0.0.1:2181";
 
     /**
      * 服务器ip地址
      */
+//    public String serverAddress1 = "222.20.79.210:11225";
     public String serverAddress1 = "127.0.0.1:11225";
+//    public String serverAddress2 = "222.20.79.210:11234";
     public String serverAddress2 = "127.0.0.1:11234";
 
     /**
      * 注册中心服务节点存储地址
-     */public String nodeNameSpace = "src/registry/namespace/";
+     */
+    public String nodeNameSpace = "src/registry/namespace/";
+
+    /**
+     * 注册中心输出头
+     */
+    public String registryHead = "[Registry] ";
+
+    /**
+     * 服务器输出头
+     */
+    public String serverHead = "[Server] ";
+
+    /**
+     * 客户端输出头
+     */
+    public String clientHead = "[Client] ";
+
+
 }

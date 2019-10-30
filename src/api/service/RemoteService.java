@@ -7,5 +7,7 @@ import api.interfaces.RPCAnnotation;
  */
 //@RPCAnnotation(value=RemoteService.class)
 public interface RemoteService {
-    public String sendMessage(String message);
+    public String reverseString(String message);
+
+    public String reverseString = "该函数输入为一个字符串,输出字符串的反转.";
 }

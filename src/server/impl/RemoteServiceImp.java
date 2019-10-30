@@ -15,7 +15,7 @@ public class RemoteServiceImp implements RemoteService, Serializable {
      * 接口的具体实现方法
      */
     @Override
-    public String sendMessage(String message) {
-        return "you say : " + message;
+    public String reverseString(String message) {
+        return new StringBuilder(message).reverse().toString();
     }
 }

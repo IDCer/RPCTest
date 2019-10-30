@@ -27,7 +27,7 @@ public class ClearMemoryThread implements Runnable {
             // 如果超过时间检测不到心跳,则从心跳表中移除这个实体,并且实际节点也需要删除
             if(currentTime - entry.getValue() > RPCConfig.timeout * 1000){
                 // 心跳表移除
-                System.out.println("服务器{" + entry.getKey() + "}无响应,已经将其从注册中心上移除...");
+                System.out.println(RPCConfig.registryHead + "服务器{" + entry.getKey() + "}无响应,已经将其从注册中心上移除...");
                 RPCRegistry.heartTable.remove(entry.getKey());
 
                 // 结点删除

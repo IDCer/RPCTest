@@ -11,4 +11,6 @@ public interface RemoteReckonService {
      * 输入两个整数,返回这两个整数的和
      */
     public int sum(Integer a, Integer b);
+
+    public String sum = "该函数输入为两个整数,输出为两个整数之和.";
 }

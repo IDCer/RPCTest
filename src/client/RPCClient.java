@@ -1,5 +1,6 @@
 package client;
 
+import api.config.RPCConfig;
 import api.model.RPCServiceQueryRequest;
 import client.proxy.RPCClientProxy;
 import java.io.ObjectInputStream;
@@ -62,7 +63,7 @@ public class RPCClient {
 //            return result;
             return serviceListResult;
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(RPCConfig.clientHead + "客户端无法无法连接到注册中心,可能是注册中心并未启动...");
         } finally {
             if (socket != null) {
                 try {

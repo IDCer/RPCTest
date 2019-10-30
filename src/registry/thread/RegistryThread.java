@@ -1,5 +1,6 @@
 package registry.thread;
 
+import api.config.RPCConfig;
 import api.interfaces.RPCSignal;
 import api.model.RPCHeartBeatPacket;
 import api.model.RPCRegisterRequest;
@@ -44,21 +45,25 @@ public class RegistryThread implements Runnable  {
                 // 接收到服务器心跳时,实时更新heartTable
                 // 强转数据类型
                 RPCHeartBeatPacket rpcHeartBeatPacket = (RPCHeartBeatPacket) rpcSignal;
+
+                System.out.println(RPCConfig.registryHead + "接收到来自{" + rpcHeartBeatPacket.getServiceAddress() + "}的心跳...");
                 // 更新
                 rpcRegistry.update(rpcHeartBeatPacket);
 
             } else if (signalKind.equals("REGISTER")) { // 如果信号类型为REGISTER,服务器第一次注册
-                System.out.println("接收到注册请求...");
                 // 强转类型
                 RPCRegisterRequest rpcRegisterRequest = (RPCRegisterRequest) rpcSignal;
-                // 调用对象进行注册持久化
+                System.out.println(RPCConfig.registryHead + "接收到来自{" + rpcRegisterRequest.getServiceAddress() +
+                        "}的服务注册请求{"+ rpcRegisterRequest.getServiceName() +"}");
+
                 rpcRegistry.register(rpcRegisterRequest.getServiceName(), rpcRegisterRequest.getServiceAddress());
 
             } else if (signalKind.equals("QUERY")) { // 如果信号类型为QUERY,即客户端查询服务
-                System.out.println("接收到客户端的查询请求");
+
                 RPCServiceQueryRequest rpcServiceQueryRequest = (RPCServiceQueryRequest) rpcSignal;
                 // 注册中心进行查询操作,返回查询地址
 //                String serviceAddress = rpcRegistry.query(rpcServiceQueryRequest.getServiceName());
+                System.out.println(RPCConfig.registryHead + "接收到来自客户端的查询服务{" + rpcServiceQueryRequest.getServiceName() +"}");
                 ArrayList<String> serviceAddress = rpcRegistry.queryServiceList(rpcServiceQueryRequest.getServiceName());
 
                 // 发送结果给客户端
